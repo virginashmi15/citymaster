@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head><title>CITY</title>
+ 
+  </head>
+  <style>
+    h1 {
+    font-size: 72px;
+    text-align: center;
+    background-color: teal;
+    text-shadow: 2px 2px greenyellow;
+  }
+  .b{
+    background-color:turquoise;
+
+  }
+  .a{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:22px;
+  }
+  table, th, td{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:22px;
+    border: 1px solid black;
+    border-collapse: collapse;
+
+  }
+  th{
+    background-color: darkgrey;
+  }
+    </style>
+  <body>
+    <h1>CITY MASTER</h1>
+    <div>
+    <form #f="ngForm" name="form"(ngSubmit)="onSubmit(f)">
+      <div class="a">
+        <label>name</label>
+        <input [(ngModel)]="c.name" name="name" type="text" >
+      </div><br>
+      <div class="a">
+        <label>population</label>
+        <input  [(ngModel)]="c.population" name="population" type="text" >
+      </div><br>
+      <div class="a">
+        <label>area</label>
+        <input  [(ngModel)]="c.area" name="area" type="text">
+      </div><br><br>
+      <button type="submit" class="b">{{title}}</button>
+    </form> <br><br>
+
+   <table id="mytable">
+      <thead>
+        <th>id</th>
+        <th>name</th>
+        <th>population</th>
+        <th>area</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of ItemsArray">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.population}}</td>
+          <td>{{item.area}}</td>              
+          <td>
+            
+            <button  id="editbtn"  (click)="edit(item)" type="submit">Edit</button> 
+           
+           
+     
+        </td>
+        <td>
+
+          <button  id="deletebtn"  (click)="delete(item.id)" type="submit">Delete</button> 
+        </td>
+        </tr>
+      </tbody>
+    </table>
